@@ -22,14 +22,16 @@ export default {
 
     // actions = fonctions asynchrones pour commit des mutations
     actions: {
-        async shopLogin({ commit }, data) {
+        async shopLogin({ commit }, { login, password }) {
             console.log('login')
-            let response = await ShopService.shopLogin(data)
+            let response = await ShopService.shopLogin({ login, password })
             if (response.error === 0) {
                 commit('updateShopUser', response.data)
             } else {
                 console.log(response.data)
             }
+
+            return response
         },
         async getAllViruses({ commit }) {
             console.log('récupération des viruses')
