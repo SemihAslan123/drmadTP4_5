@@ -1,5 +1,6 @@
 import ShopService from '../services/shop.service'
 
+
 export default {
     namespaced: true,
 
